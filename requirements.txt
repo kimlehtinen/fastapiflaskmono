@@ -3,3 +3,4 @@ uvicorn[standard]
 Flask
 Flask-SQLAlchemy
 Flask-Migrate
+dependency-injector
