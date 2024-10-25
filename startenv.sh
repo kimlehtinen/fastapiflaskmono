@@ -1,0 +1,2 @@
+
+source fastapitest/bin/activate
