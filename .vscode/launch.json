@@ -5,14 +5,31 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "PublicAPI (Flask)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "flask",
+            "env": {
+                "FLASK_APP": "publicapi/app.py",
+                "FLASK_DEBUG": "1"
+            },
+            "args": [
+                "run"
+            ],
+            "jinja": true,
+            "autoStartBrowser": false
+        },
+        {
             "name": "ResultsAPI (FastAPI)",
             "type": "debugpy",
             "request": "launch",
             "module": "uvicorn",
             "args": [
                 "resultsapi.app:app",
-                "--reload-dir", "resultsapi",
-                "--reload-dir", "common"
+                "--reload-dir",
+                "resultsapi",
+                "--reload-dir",
+                "common"
             ],
             "jinja": true
         }

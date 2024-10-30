@@ -4,7 +4,9 @@ from dependency_injector.wiring import inject, Provide
 
 from common.core.project.project import Project
 from common.core.project.project_repository import ProjectRepository
+from publicapi.src.domain.project.project_dto import ProjectCreateDTO
 from publicapi.src.ioc.di import DIContainer
+from publicapi.src.web.schemas.project_schema import ProjectCreateSchema
 
 
 projects_api = Blueprint('projects_api', __name__)
@@ -14,7 +16,8 @@ projects_api = Blueprint('projects_api', __name__)
 def create_project(
     project_repository: ProjectRepository = Provide[DIContainer.project_repository]
 ):
-    project = Project(title=request.json['title'], results=[])
+    data = ProjectCreateSchema().load(request.json)
+    project = ProjectCreateDTO(**data)
     project = project_repository.create(project)
 
     return jsonify(project.to_dict()), 201

@@ -1,8 +1,10 @@
-fastapi[standard]
-uvicorn[standard]
-Flask
-Flask-SQLAlchemy
-Flask-Migrate
 dependency-injector
+fastapi[standard]
+Flask
+Flask-Migrate
+Flask-SQLAlchemy
+marshmallow
 psycopg2-binary
+pytest
 python-dotenv
+uvicorn[standard]
