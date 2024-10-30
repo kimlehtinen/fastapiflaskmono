@@ -1,16 +1,5 @@
 from fastapi import FastAPI
-from concurrent.futures import ThreadPoolExecutor
+from resultsapi.src.web.routes.result_routes import result_api
 
 app = FastAPI()
-executor = ThreadPoolExecutor()
-
-def blocking_task():
-    import time
-    time.sleep(5)
-    return "Task completed"
-
-@app.get("/")
-def root():
-    future = executor.submit(blocking_task)
-    result = future.result()
-    return {"message": result}
+app.include_router(result_api)

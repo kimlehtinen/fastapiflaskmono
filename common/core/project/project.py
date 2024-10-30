@@ -4,11 +4,11 @@ from dataclasses import dataclass
 
 @dataclass
 class Project:
-    id: int
-    name: str
+    title: str
+    id: int | None = None
 
     def to_dict(self):
         return {
             'id': self.id,
-            'name': self.name
+            'title': self.title
         }

@@ -1,6 +1,8 @@
-fastapi
+fastapi[standard]
 uvicorn[standard]
 Flask
 Flask-SQLAlchemy
 Flask-Migrate
 dependency-injector
+psycopg2-binary
+python-dotenv

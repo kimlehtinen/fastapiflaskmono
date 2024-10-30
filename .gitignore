@@ -1,3 +1,4 @@
 fastapitest/
 __pycache__/
 *.pyc
+db/
