@@ -2,6 +2,8 @@
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
+from resultsapi.src.domain.result.result_dto import ResultDTO
+
 if TYPE_CHECKING:
     from common.core.project.project import Project
 
@@ -18,3 +20,9 @@ class Result:
             'title': self.title,
             'project': self.project.to_dict() if self.project else None
         }
+    
+    def to_dto(self):
+        return ResultDTO(
+            title=self.title,
+            project=self.project
+        )
